@@ -1,0 +1,29 @@
+﻿@page "/counter"
+@using BlazorServerAnimation.Data
+
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<Animation AnimationNameSelect=@animationSelect>
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+</Animation>
+
+
+@code {
+    private int currentCount = 0;
+    public string animationSelect = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        animationSelect = AnimationName.fade;
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
